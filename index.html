@@ -1,0 +1,996 @@
+
+<!DOCTYPE html>
+<html lang="bn" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0d18">
+  <meta name="description" content="Discover the best AI tools for writing, coding, studying, image generation, video and productivity (Designed and Created By SAYEEF ADNAN).">
+  <title>AI Tools Universe — Discover Your Next AI Tool (Designed and Created By SAYEEF ADNAN)</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+
+    :root {
+      color-scheme: dark;
+      --bg: #0b0d18;
+      --surface: #121526;
+      --surface2: #191d32;
+      --card: rgba(23, 27, 47, .88);
+      --text: #f4f5ff;
+      --muted: #a2a8c3;
+      --border: rgba(160, 166, 210, .15);
+      --accent: #9b87ff;
+      --accent2: #62d5ff;
+      --gradient: linear-gradient(120deg, #8b5cf6, #4f8cff, #52d6e8);
+      --shadow: 0 14px 40px rgba(0, 0, 0, .18);
+    }
+
+    [data-theme="light"] {
+      color-scheme: light;
+      --bg: #f6f7fc;
+      --surface: #ffffff;
+      --surface2: #eff0fb;
+      --card: #ffffff;
+      --text: #171a2d;
+      --muted: #646b83;
+      --border: rgba(65, 70, 110, .15);
+      --accent: #6847df;
+      --accent2: #087eae;
+      --shadow: 0 12px 35px rgba(42, 46, 90, .07);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 10% 0%, rgba(105, 75, 220, .13), transparent 34%),
+        radial-gradient(ellipse at 95% 18%, rgba(48, 163, 226, .09), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, "Noto Sans Bengali", system-ui, sans-serif;
+      min-height: 100vh;
+      transition: background .25s, color .25s;
+    }
+
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(1200px, calc(100% - 36px)); margin: auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: color-mix(in srgb, var(--bg) 87%, transparent);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      letter-spacing: -.7px;
+      font-size: 19px;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      background: var(--gradient);
+      box-shadow: 0 6px 25px rgba(116, 91, 255, .24);
+      font-size: 21px;
+    }
+
+    .brand span:last-child span { color: var(--accent); }
+
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+
+    .icon-btn, .nav-link, .pill, .filter-select {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--surface);
+      border-radius: 12px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+    }
+
+    .nav-link { padding: 11px 15px; font-size: 13px; font-weight: 600; }
+    .icon-btn:hover, .nav-link:hover { border-color: var(--accent); }
+
+    .hero { padding: 76px 0 35px; text-align: center; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 30px;
+      padding: 8px 13px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: #55e4ac;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #55e4ac;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 65px);
+      line-height: 1.1;
+      letter-spacing: -2.5px;
+      margin: 24px auto 17px;
+      max-width: 850px;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 610px;
+      line-height: 1.8;
+      font-size: 15px;
+      margin: 0 auto;
+    }
+
+    .search-wrap {
+      max-width: 690px;
+      margin: 32px auto 0;
+      padding: 7px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      box-shadow: var(--shadow);
+    }
+
+    .search-symbol { padding-left: 13px; font-size: 20px; color: var(--muted); }
+
+    .search-wrap input {
+      width: 100%;
+      min-width: 0;
+      padding: 13px 3px;
+      color: var(--text);
+      background: transparent;
+      border: 0;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .search-wrap input::placeholder { color: var(--muted); }
+
+    .search-wrap:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, .12);
+    }
+
+    .search-shortcut {
+      flex-shrink: 0;
+      padding: 6px 9px;
+      margin-right: 5px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 34px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .stat { display: flex; align-items: center; gap: 8px; }
+    .stat strong { font-size: 17px; }
+    .stat span { color: var(--muted); font-size: 12px; }
+
+    .main { padding: 27px 0 75px; }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 { margin: 0; font-size: 22px; letter-spacing: -.6px; }
+    .section-heading p { color: var(--muted); margin: 7px 0 0; font-size: 13px; }
+    .count { font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 2px 0 15px;
+      scrollbar-width: thin;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: .2s;
+    }
+
+    .pill:hover { border-color: var(--accent); }
+    .pill.active { background: var(--gradient); color: white; border-color: transparent; }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 8px 0 25px;
+    }
+
+    .filter-label { font-size: 12px; color: var(--muted); }
+
+    .filter-select {
+      padding: 10px 34px 10px 12px;
+      font-size: 12px;
+      outline: none;
+      max-width: 100%;
+    }
+
+    .filter-select option { background: var(--surface); color: var(--text); }
+
+    .toggle-favorites {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 10px 13px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 11px;
+      font-size: 12px;
+    }
+
+    .toggle-favorites.active { border-color: var(--accent); color: var(--accent); }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .tool-card {
+      position: relative;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 19px;
+      box-shadow: var(--shadow);
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+      animation: appear .3s ease both;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      border-color: color-mix(in srgb, var(--accent) 65%, var(--border));
+      box-shadow: 0 15px 40px rgba(95, 72, 200, .1);
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(7px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-top { display: flex; justify-content: space-between; gap: 10px; align-items: start; }
+
+    .tool-logo {
+      width: 51px;
+      height: 51px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+
+    .card-badges { display: flex; gap: 5px; flex-wrap: wrap; justify-content: end; }
+
+    .mini-badge {
+      border-radius: 6px;
+      padding: 5px 7px;
+      background: var(--surface2);
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .mini-badge.popular { color: #f3b65b; background: rgba(243, 182, 91, .1); }
+    .mini-badge.new { color: #5bd9ac; background: rgba(91, 217, 172, .1); }
+
+    .tool-card h3 { margin: 17px 0 8px; font-size: 16px; letter-spacing: -.3px; }
+    .tool-card .description { color: var(--muted); font-size: 12px; line-height: 1.75; margin: 0 0 16px; flex: 1; }
+
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: auto;
+    }
+
+    .category-tag {
+      font-size: 10px;
+      color: var(--muted);
+      background: var(--surface2);
+      padding: 7px 9px;
+      border-radius: 8px;
+    }
+
+    .card-actions { display: flex; gap: 7px; align-items: center; }
+
+    .favorite-btn {
+      width: 35px;
+      height: 35px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .favorite-btn.saved { color: #ff7197; border-color: rgba(255, 113, 151, .4); background: rgba(255, 113, 151, .08); }
+
+    .visit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: var(--gradient);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      border: 0;
+    }
+
+    .visit-btn:hover { filter: brightness(1.1); }
+
+    .empty {
+      text-align: center;
+      padding: 70px 20px;
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 18px;
+      grid-column: 1 / -1;
+    }
+
+    .empty .empty-icon { font-size: 40px; }
+    .empty h3 { margin: 14px 0 8px; }
+    .empty p { color: var(--muted); font-size: 13px; }
+    .reset-btn { border: 0; padding: 10px 15px; border-radius: 10px; background: var(--gradient); color: white; }
+
+    .bottom-note {
+      margin-top: 30px;
+      padding: 17px 19px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    footer { border-top: 1px solid var(--border); padding: 26px 0; color: var(--muted); font-size: 12px; }
+
+    .footer-inner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+
+    .toast {
+      position: fixed;
+      z-index: 99;
+      bottom: 24px;
+      left: 50%;
+      transform: translate(-50%, 20px);
+      opacity: 0;
+      pointer-events: none;
+      background: var(--text);
+      color: var(--bg);
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 12px;
+      box-shadow: var(--shadow);
+      transition: .25s;
+      max-width: calc(100% - 30px);
+    }
+
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 900px) {
+      .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero { padding-top: 60px; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: calc(100% - 24px); }
+      .nav { min-height: 62px; }
+      .brand { font-size: 15px; gap: 8px; }
+      .brand-icon { width: 35px; height: 35px; }
+      .nav-link { display: none; }
+      h1 { letter-spacing: -1.6px; }
+      .hero { padding: 48px 0 28px; }
+      .hero p { font-size: 13px; }
+      .search-shortcut { display: none; }
+      .stats { gap: 18px; }
+      .stat { gap: 5px; }
+      .stat strong { font-size: 15px; }
+      .stat span { font-size: 10px; }
+      .tool-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      .tool-card { padding: 16px; }
+      .filters { gap: 8px; }
+      .section-heading h2 { font-size: 19px; }
+      .section-heading p { font-size: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="AI Tools Universe home">
+        <span class="brand-icon">✳</span>
+        <span>AI Tools <span>Universe</span></span>
+      </a>
+
+      <div class="nav-right">
+        <a class="nav-link" href="#directory">Explore Tools ↗</a>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle light or dark theme" title="Change theme">☀️</button>
+        <button class="icon-btn" id="headerFavBtn" aria-label="Show favorites" title="Favorites">♡</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <div class="eyebrow"><span class="live-dot"></span> YOUR GATEWAY TO ARTIFICIAL INTELLIGENCE</div>
+    <h1>Discover the <span class="gradient-text">Power of AI</span></h1>
+    <h5>CREATED BY SAYEEF ADNAN<h5/>
+    <p>Explore the best AI tools for creativity, productivity, coding, studying and more. Your next favorite tool is just one search away.</p>
+
+    <div class="search-wrap">
+      <span class="search-symbol" aria-hidden="true">⌕</span>
+      <input id="searchInput" type="search" placeholder="Search tools, categories, or tasks..." aria-label="Search AI tools">
+      <span class="search-shortcut">/ Search</span>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><strong id="totalStat">60+</strong><span>AI Tools</span></div>
+      <div class="stat"><strong id="categoryStat">8</strong><span>Categories</span></div>
+      <div class="stat"><strong id="favoriteStat">0</strong><span>Favorites</span></div>
+    </div>
+  </section>
+
+  <main class="main container" id="directory">
+    <div class="section-heading">
+      <div>
+        <h2 id="sectionTitle">Explore AI Tools</h2>
+        <p id="sectionSubtitle">Find the right AI for your next big idea.</p>
+      </div>
+      <span class="count" id="resultCount" aria-live="polite"></span>
+    </div>
+
+    <nav class="tabs" id="categoryTabs" aria-label="AI tool categories"></nav>
+
+    <div class="filters">
+      <span class="filter-label">Filter:</span>
+      <select class="filter-select" id="typeFilter" aria-label="Filter by access type">
+        <option value="all">All access types</option>
+        <option value="free">Free option</option>
+        <option value="paid">Paid / trial / freemium</option>
+      </select>
+
+      <select class="filter-select" id="sortFilter" aria-label="Sort tools">
+        <option value="featured">Featured first</option>
+        <option value="az">Name A–Z</option>
+        <option value="za">Name Z–A</option>
+      </select>
+
+      <button class="toggle-favorites" id="favFilterBtn" aria-pressed="false">♡ Favorites only</button>
+    </div>
+
+    <div class="tool-grid" id="toolGrid" aria-live="polite"></div>
+
+    <div class="bottom-note">
+      💡 <strong>Good to know:</strong> AI Tools Universe is an independent directory. Tool names and logos belong to their respective owners. Pricing, availability and features may change. Check each provider's website for current details.
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>✳ AI Tools Universe</span>
+      <span>Discover • Create • Learn • Build</span>
+      <span>Made for curious minds 💜 <br/>By SAYEEF ADNAN </span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    "use strict";
+
+    /*
+      EASY UPDATES:
+      Add or edit tool objects inside this array.
+      category must match one of the categories listed below.
+      "isNew" is an editorial label for this directory, not a verified launch date.
+    */
+
+    const categories = [
+      { id: "all", label: "✦ All Tools" },
+      { id: "chat", label: "💬 Chat & Writing" },
+      { id: "image", label: "🎨 Image & Design" },
+      { id: "code", label: "💻 Coding" },
+      { id: "study", label: "📚 Study & Research" },
+      { id: "video", label: "🎬 Video & Audio" },
+      { id: "productivity", label: "⚡ Productivity" },
+      { id: "business", label: "📈 Business" },
+      { id: "other", label: "🧰 Other Tools" }
+    ];
+
+    const tools = [
+      // CHAT & WRITING
+      { name:"ChatGPT", icon:"🤖", category:"chat", description:"An AI assistant for writing, brainstorming, learning, coding and everyday questions.", url:"https://chatgpt.com/", popular:true, access:"free" },
+      { name:"Claude", icon:"🟠", category:"chat", description:"An AI assistant for writing, analysis, coding and working with long documents.", url:"https://claude.ai/", popular:true, access:"free" },
+      { name:"Google Gemini", icon:"💎", category:"chat", description:"Google's AI assistant for ideas, explanations, writing and creative tasks.", url:"https://gemini.google.com/", popular:true, access:"free" },
+      { name:"Microsoft Copilot", icon:"🌐", category:"chat", description:"An AI assistant for questions, research, writing and everyday productivity.", url:"https://copilot.microsoft.com/", popular:true, access:"free" },
+      { name:"Perplexity", icon:"🔎", category:"chat", description:"An AI-powered answer engine that helps explore questions with cited sources.", url:"https://www.perplexity.ai/", popular:true, access:"free" },
+      { name:"DeepSeek", icon:"🐳", category:"chat", description:"An AI chat assistant for reasoning, writing and technical questions.", url:"https://chat.deepseek.com/", popular:true, access:"free" },
+      { name:"Grok", icon:"✳️", category:"chat", description:"An AI assistant for questions, exploration and creative conversations.", url:"https://grok.com/", access:"free" },
+      { name:"Poe", icon:"💬", category:"chat", description:"A platform for exploring AI chatbots and bots created by different developers.", url:"https://poe.com/", popular:true, access:"free" },
+      { name:"Character.AI", icon:"🎭", category:"chat", description:"Chat with fictional and user-created AI characters.", url:"https://character.ai/", access:"free" },
+      { name:"Mistral Le Chat", icon:"🌬️", category:"chat", description:"An AI assistant for questions, writing, reasoning and productivity.", url:"https://chat.mistral.ai/", access:"free" },
+      { name:"Meta AI", icon:"🔵", category:"chat", description:"Meta's AI assistant for asking questions and exploring creative ideas.", url:"https://www.meta.ai/", access:"free" },
+      { name:"Qwen Chat", icon:"🌟", category:"chat", description:"An AI assistant for conversation, reasoning and creative tasks.", url:"https://chat.qwen.ai/", access:"free" },
+
+      // IMAGE & DESIGN
+      { name:"Midjourney", icon:"🌌", category:"image", description:"Create artistic images and visual concepts from text prompts.", url:"https://www.midjourney.com/", popular:true, access:"paid" },
+      { name:"Adobe Firefly", icon:"🔥", category:"image", description:"Adobe's generative AI tools for image creation and creative editing.", url:"https://firefly.adobe.com/", popular:true, access:"free" },
+      { name:"Canva", icon:"🎨", category:"image", description:"Design presentations, graphics and social posts with AI-assisted features.", url:"https://www.canva.com/", popular:true, access:"free" },
+      { name:"Leonardo AI", icon:"🦁", category:"image", description:"Generate images and creative assets for design and visual projects.", url:"https://leonardo.ai/", popular:true, access:"free" },
+      { name:"Ideogram", icon:"🔤", category:"image", description:"Create images and designs, including visuals with text.", url:"https://ideogram.ai/", popular:true, access:"free" },
+      { name:"Playground", icon:"🛝", category:"image", description:"Explore AI image generation and creative visual editing.", url:"https://playground.com/", access:"free" },
+      { name:"Recraft", icon:"🪄", category:"image", description:"Create illustrations, vector-style graphics and visual design assets.", url:"https://www.recraft.ai/", access:"free" },
+      { name:"Krea AI", icon:"✨", category:"image", description:"Explore AI image creation, enhancement and visual experimentation.", url:"https://www.krea.ai/", access:"free" },
+      { name:"Remove.bg", icon:"✂️", category:"image", description:"Remove image backgrounds automatically in a few steps.", url:"https://www.remove.bg/", access:"free" },
+      { name:"Clipdrop", icon:"🧩", category:"image", description:"A collection of AI-powered image cleanup and editing tools.", url:"https://clipdrop.co/", access:"free" },
+      { name:"Photoroom", icon:"📸", category:"image", description:"Create product images and edit photo backgrounds with AI assistance.", url:"https://www.photoroom.com/", access:"free" },
+      { name:"Figma", icon:"🖌️", category:"image", description:"Design interfaces and collaborate on digital products with AI features.", url:"https://www.figma.com/", access:"free" },
+
+      // CODING
+      { name:"GitHub Copilot", icon:"🐙", category:"code", description:"An AI coding assistant integrated into supported development tools.", url:"https://github.com/features/copilot", popular:true, access:"paid" },
+      { name:"Cursor", icon:"⌨️", category:"code", description:"An AI-powered code editor for understanding and editing codebases.", url:"https://cursor.com/", popular:true, access:"free" },
+      { name:"Windsurf", icon:"🏄", category:"code", description:"An AI-assisted coding environment for building and editing software.", url:"https://windsurf.com/", popular:true, access:"free" },
+      { name:"Replit", icon:"🧪", category:"code", description:"Build, run and deploy projects in an online development environment.", url:"https://replit.com/", popular:true, access:"free" },
+      { name:"v0", icon:"⚡", category:"code", description:"Generate web interface ideas and code from natural-language prompts.", url:"https://v0.dev/", popular:true, access:"free" },
+      { name:"Lovable", icon:"💗", category:"code", description:"Create web application prototypes through conversational AI prompts.", url:"https://lovable.dev/", isNew:true, access:"free" },
+      { name:"Bolt.new", icon:"⚙️", category:"code", description:"Prototype and build web applications in a browser-based environment.", url:"https://bolt.new/", popular:true, access:"free" },
+      { name:"Codeium / Windsurf", icon:"🌊", category:"code", description:"Explore AI coding tools and code-completion features from Windsurf.", url:"https://windsurf.com/", access:"free" },
+      { name:"Tabnine", icon:"🔢", category:"code", description:"AI code completion and developer assistance for supported IDEs.", url:"https://www.tabnine.com/", access:"paid" },
+      { name:"Sourcegraph Cody", icon:"🧭", category:"code", description:"AI assistance for understanding and working with codebases.", url:"https://sourcegraph.com/", access:"free" },
+
+      // STUDY & RESEARCH
+      { name:"NotebookLM", icon:"📓", category:"study", description:"Explore your sources and create study materials with Google's AI notebook.", url:"https://notebooklm.google/", popular:true, access:"free" },
+      { name:"Khan Academy", icon:"🎓", category:"study", description:"Learn through lessons and practice, with AI learning features where available.", url:"https://www.khanacademy.org/", popular:true, access:"free" },
+      { name:"Khanmigo", icon:"🧑‍🏫", category:"study", description:"An AI-powered learning assistant from Khan Academy.", url:"https://www.khanmigo.ai/", access:"paid" },
+      { name:"Quizlet", icon:"🗂️", category:"study", description:"Study with flashcards, practice tests and available AI study features.", url:"https://quizlet.com/", popular:true, access:"free" },
+      { name:"Photomath", icon:"➗", category:"study", description:"Understand math problems through step-by-step learning explanations.", url:"https://photomath.com/", access:"free" },
+      { name:"WolframAlpha", icon:"🧮", category:"study", description:"Explore computational answers in mathematics, science and more.", url:"https://www.wolframalpha.com/", access:"free" },
+      { name:"Elicit", icon:"🔬", category:"study", description:"Research assistant for finding and reviewing academic papers.", url:"https://elicit.com/", access:"free" },
+      { name:"Consensus", icon:"📚", category:"study", description:"Search research literature and explore evidence from scientific papers.", url:"https://consensus.app/", access:"free" },
+      { name:"SciSpace", icon:"🧫", category:"study", description:"Explore academic papers and research with AI-assisted reading tools.", url:"https://scispace.com/", access:"free" },
+      { name:"DeepL", icon:"🌍", category:"study", description:"Translate text and improve writing across supported languages.", url:"https://www.deepl.com/", popular:true, access:"free" },
+
+      // VIDEO & AUDIO
+      { name:"Runway", icon:"🎞️", category:"video", description:"Explore generative AI tools for video creation and editing.", url:"https://runwayml.com/", popular:true, access:"free" },
+      { name:"Pika", icon:"🎬", category:"video", description:"Create and transform video clips with generative AI features.", url:"https://pika.art/", access:"free" },
+      { name:"Synthesia", icon:"🗣️", category:"video", description:"Create presenter-style videos using AI avatars and generated speech.", url:"https://www.synthesia.io/", popular:true, access:"paid" },
+      { name:"HeyGen", icon:"🧑‍💻", category:"video", description:"Create avatar videos and explore AI-assisted video translation.", url:"https://www.heygen.com/", popular:true, access:"free" },
+      { name:"ElevenLabs", icon:"🎙️", category:"video", description:"AI voice generation, text-to-speech and audio tools.", url:"https://elevenlabs.io/", popular:true, access:"free" },
+      { name:"Suno", icon:"🎵", category:"video", description:"Generate music from creative prompts using AI music tools.", url:"https://suno.com/", access:"free" },
+      { name:"Udio", icon:"🎹", category:"video", description:"Explore AI-assisted music creation and song ideas.", url:"https://www.udio.com/", access:"free" },
+      { name:"Descript", icon:"🎧", category:"video", description:"Edit audio and video with transcript-based editing tools.", url:"https://www.descript.com/", access:"free" },
+      { name:"CapCut", icon:"✂️", category:"video", description:"Edit videos and use available AI-powered creative features.", url:"https://www.capcut.com/", popular:true, access:"free" },
+      { name:"Adobe Podcast", icon:"🎤", category:"video", description:"Explore audio enhancement and podcast production tools.", url:"https://podcast.adobe.com/", access:"free" },
+
+      // PRODUCTIVITY
+      { name:"Notion", icon:"📔", category:"productivity", description:"Organize notes, projects and tasks with integrated AI features.", url:"https://www.notion.so/", popular:true, access:"free" },
+      { name:"Gamma", icon:"🪄", category:"productivity", description:"Create presentations, documents and visual stories with AI assistance.", url:"https://gamma.app/", popular:true, access:"free" },
+      { name:"Grammarly", icon:"✍️", category:"productivity", description:"Improve grammar, clarity and writing style with AI writing assistance.", url:"https://www.grammarly.com/", access:"free" },
+      { name:"QuillBot", icon:"📝", category:"productivity", description:"Paraphrase, summarize and revise text using writing tools.", url:"https://quillbot.com/", access:"free" },
+      { name:"Otter.ai", icon:"🦦", category:"productivity", description:"Transcribe conversations and create meeting notes with AI assistance.", url:"https://otter.ai/", access:"free" },
+      { name:"Zapier", icon:"🔗", category:"productivity", description:"Connect apps and automate workflows, including AI-assisted tasks.", url:"https://zapier.com/", access:"free" },
+      { name:"Make", icon:"🧱", category:"productivity", description:"Build visual workflows to connect apps and automate repetitive tasks.", url:"https://www.make.com/", access:"free" },
+
+      // BUSINESS
+      { name:"Jasper", icon:"✒️", category:"business", description:"AI-assisted marketing content and brand-focused writing workflows.", url:"https://www.jasper.ai/", access:"paid" },
+      { name:"Copy.ai", icon:"📣", category:"business", description:"AI-assisted writing and workflows for marketing and business tasks.", url:"https://www.copy.ai/", access:"free" },
+      { name:"HubSpot", icon:"🟠", category:"business", description:"Customer relationship and marketing platform with AI-powered features.", url:"https://www.hubspot.com/", access:"free" },
+      { name:"Surfer", icon:"🏄", category:"business", description:"Content optimization tools for search-focused writing workflows.", url:"https://surferseo.com/", access:"paid" },
+      { name:"Durable", icon:"🏗️", category:"business", description:"Explore AI-assisted website creation for small businesses.", url:"https://durable.co/", access:"paid" },
+
+      // OTHER TOOLS
+      { name:"Hugging Face", icon:"🤗", category:"other", description:"Explore AI models, datasets, demos and open-source machine learning projects.", url:"https://huggingface.co/", popular:true, access:"free" },
+      { name:"Replicate", icon:"🔁", category:"other", description:"Discover and run machine-learning models through an online platform.", url:"https://replicate.com/", access:"paid" },
+      { name:"OpenRouter", icon:"🧩", category:"other", description:"Explore an API platform providing access to multiple AI models.", url:"https://openrouter.ai/", access:"free" },
+      { name:"Luma AI", icon:"💡", category:"other", description:"Explore AI tools for visual creation and generative media.", url:"https://lumalabs.ai/", access:"free" },
+      { name:"Softr", icon:"🧰", category:"other", description:"Build web apps and portals with visual tools and AI-assisted features.", url:"https://www.softr.io/", access:"free" },
+      { name:"Airtable", icon:"📊", category:"other", description:"Organize information and build workflows with AI-powered features.", url:"https://www.airtable.com/", access:"free" }
+    ];
+
+    const $ = (selector) => document.querySelector(selector);
+
+    const state = {
+      query: "",
+      category: "all",
+      favoritesOnly: false,
+      type: "all",
+      sort: "featured"
+    };
+
+    function readStorage(key, fallback) {
+      try {
+        const value = localStorage.getItem(key);
+        return value === null ? fallback : JSON.parse(value);
+      } catch {
+        return fallback;
+      }
+    }
+
+    function saveStorage(key, value) {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+        return true;
+      } catch {
+        showToast("Browser storage is unavailable. Your changes may not persist.");
+        return false;
+      }
+    }
+
+    let favorites = readStorage("atu-favorites-v1", []);
+    if (!Array.isArray(favorites)) favorites = [];
+
+    const savedTheme = readStorage("atu-theme-v1", "dark");
+    document.documentElement.dataset.theme =
+      savedTheme === "light" ? "light" : "dark";
+
+    const themeBtn = $("#themeBtn");
+
+    function updateThemeButton() {
+      const light = document.documentElement.dataset.theme === "light";
+      themeBtn.textContent = light ? "🌙" : "☀️";
+      themeBtn.title = light ? "Switch to dark mode" : "Switch to light mode";
+      themeBtn.setAttribute("aria-label", themeBtn.title);
+    }
+
+    function toggleTheme() {
+      const next =
+        document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      saveStorage("atu-theme-v1", next);
+      updateThemeButton();
+    }
+
+    themeBtn.addEventListener("click", toggleTheme);
+    updateThemeButton();
+
+    let toastTimer;
+
+    function showToast(message) {
+      const toast = $("#toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2400);
+    }
+
+    function categoryName(id) {
+      return categories.find(c => c.id === id)?.label.replace(/^.{1,3}\s/, "") || id;
+    }
+
+    function renderCategories() {
+      $("#categoryTabs").innerHTML = categories.map(category => `
+        <button
+          class="pill ${state.category === category.id ? "active" : ""}"
+          data-category="${category.id}"
+          aria-pressed="${state.category === category.id}"
+        >${category.label}</button>
+      `).join("");
+    }
+
+    function updateStats() {
+      $("#totalStat").textContent = tools.length + "+";
+      $("#categoryStat").textContent = categories.length - 1;
+      $("#favoriteStat").textContent = favorites.length;
+      $("#headerFavBtn").textContent = state.favoritesOnly ? "♥" : "♡";
+      $("#favFilterBtn").classList.toggle("active", state.favoritesOnly);
+      $("#favFilterBtn").setAttribute("aria-pressed", String(state.favoritesOnly));
+      $("#favFilterBtn").textContent = state.favoritesOnly
+        ? "♥ Showing favorites"
+        : "♡ Favorites only";
+    }
+
+    function filteredTools() {
+      const query = state.query.trim().toLocaleLowerCase();
+
+      let results = tools.filter(tool => {
+        const searchable = [
+          tool.name,
+          tool.description,
+          categoryName(tool.category),
+          tool.category
+        ].join(" ").toLocaleLowerCase();
+
+        const matchesQuery = !query || searchable.includes(query);
+        const matchesCategory =
+          state.category === "all" || tool.category === state.category;
+        const matchesFavorites =
+          !state.favoritesOnly || favorites.includes(tool.name);
+        const matchesType =
+          state.type === "all" ||
+          (state.type === "free" && tool.access === "free") ||
+          (state.type === "paid" && tool.access === "paid");
+
+        return matchesQuery && matchesCategory && matchesFavorites && matchesType;
+      });
+
+      if (state.sort === "az") {
+        results.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (state.sort === "za") {
+        results.sort((a, b) => b.name.localeCompare(a.name));
+      } else {
+        results.sort((a, b) =>
+          Number(Boolean(b.popular)) - Number(Boolean(a.popular)) ||
+          a.name.localeCompare(b.name)
+        );
+      }
+
+      return results;
+    }
+
+    function renderCards() {
+      const grid = $("#toolGrid");
+      const results = filteredTools();
+
+      const tabName = state.favoritesOnly
+        ? "Your Favorite Tools"
+        : state.category === "all"
+          ? "Explore AI Tools"
+          : categoryName(state.category);
+
+      $("#sectionTitle").textContent = tabName;
+      $("#sectionSubtitle").textContent = state.query
+        ? `Results matching “${state.query}”`
+        : state.favoritesOnly
+          ? "Your saved tools, all in one place.(Powered By SAI)"
+          : "Find the right AI for your next big idea.";
+
+      $("#resultCount").textContent =
+        `${results.length} tool${results.length === 1 ? "" : "s"} found`;
+
+      if (!results.length) {
+        grid.innerHTML = `
+          <div class="empty">
+            <div class="empty-icon">🔎</div>
+            <h3>No tools found</h3>
+            <p>Try a different search, category or filter.</p>
+            <button class="reset-btn" id="resetBtn">Clear filters</button>
+          </div>
+        `;
+        $("#resetBtn").addEventListener("click", resetFilters);
+        updateStats();
+        return;
+      }
+
+      grid.innerHTML = results.map((tool, index) => {
+        const saved = favorites.includes(tool.name);
+        const badges = [
+          tool.popular ? '<span class="mini-badge popular">★ POPULAR</span>' : "",
+          tool.isNew ? '<span class="mini-badge new">✦ NEW</span>' : ""
+        ].filter(Boolean).join("");
+
+        const safeUrl = validExternalUrl(tool.url);
+        const visitMarkup = safeUrl
+          ? `<a class="visit-btn" href="${safeUrl}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${escapeHtml(tool.name)}">Visit tool ↗</a>`
+          : `<button class="visit-btn" disabled>Link unavailable</button>`;
+
+        return `
+          <article class="tool-card" style="animation-delay:${Math.min(index * 25, 200)}ms">
+            <div class="card-top">
+              <div class="tool-logo" aria-hidden="true">${tool.icon}</div>
+              <div class="card-badges">${badges}</div>
+            </div>
+            <h3>${escapeHtml(tool.name)}</h3>
+            <p class="description">${escapeHtml(tool.description)}</p>
+            <div class="card-bottom">
+              <span class="category-tag">${escapeHtml(categoryName(tool.category))}</span>
+              <div class="card-actions">
+                <button
+                  class="favorite-btn ${saved ? "saved" : ""}"
+                  data-favorite="${escapeHtml(tool.name)}"
+                  aria-label="${saved ? "Remove" : "Add"} ${escapeHtml(tool.name)} ${saved ? "from" : "to"} favorites"
+                  aria-pressed="${saved}"
+                  title="${saved ? "Remove from favorites" : "Add to favorites"}"
+                >${saved ? "♥" : "♡"}</button>
+                ${visitMarkup}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      updateStats();
+    }
+
+    function validExternalUrl(value) {
+      try {
+        const url = new URL(value);
+        if (url.protocol === "https:" && url.hostname.includes(".")) {
+          return escapeHtml(url.href);
+        }
+      } catch {}
+      return "";
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[character]);
+    }
+
+    function render() {
+      renderCategories();
+      renderCards();
+    }
+
+    function resetFilters() {
+      state.query = "";
+      state.category = "all";
+      state.favoritesOnly = false;
+      state.type = "all";
+      state.sort = "featured";
+
+      $("#searchInput").value = "";
+      $("#typeFilter").value = "all";
+      $("#sortFilter").value = "featured";
+
+      render();
+    }
+
+    $("#categoryTabs").addEventListener("click", event => {
+      const button = event.target.closest("[data-category]");
+      if (!button) return;
+
+      state.category = button.dataset.category;
+      state.favoritesOnly = false;
+      render();
+    });
+
+    $("#searchInput").addEventListener("input", event => {
+      state.query = event.target.value;
+      renderCards();
+    });
+
+    $("#typeFilter").addEventListener("change", event => {
+      state.type = event.target.value;
+      renderCards();
+    });
+
+    $("#sortFilter").addEventListener("change", event => {
+      state.sort = event.target.value;
+      renderCards();
+    });
+
+    function toggleFavoritesFilter() {
+      state.favoritesOnly = !state.favoritesOnly;
+      render();
+      $("#directory").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    $("#favFilterBtn").addEventListener("click", toggleFavoritesFilter);
+    $("#headerFavBtn").addEventListener("click", toggleFavoritesFilter);
+
+    $("#toolGrid").addEventListener("click", event => {
+      const button = event.target.closest("[data-favorite]");
+      if (!button) return;
+
+      const name = button.dataset.favorite;
+      const exists = favorites.includes(name);
+
+      favorites = exists
+        ? favorites.filter(item => item !== name)
+        : [...favorites, name];
+
+      saveStorage("atu-favorites-v1", favorites);
+      renderCards();
+      showToast(exists ? "Removed from favorites" : "Added to favorites ♥");
+    });
+
+    // Keyboard shortcut: press / to focus search, Escape to clear it.
+    document.addEventListener("keydown", event => {
+      const target = event.target;
+      const typing = target instanceof HTMLElement &&
+        (target.isContentEditable ||
+         ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName));
+
+      if (event.key === "/" && !typing && !event.ctrlKey && !event.metaKey) {
+        event.preventDefault();
+        $("#searchInput").focus();
+      }
+
+      if (event.key === "Escape" && target === $("#searchInput")) {
+        $("#searchInput").value = "";
+        state.query = "";
+        renderCards();
+        $("#searchInput").blur();
+      }
+    });
+
+    // Keep favorites valid if the directory data is edited.
+    favorites = favorites.filter(name => tools.some(tool => tool.name === name));
+
+    render();
+  </script>
+</body>
+</html>
