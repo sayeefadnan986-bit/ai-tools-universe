@@ -9,6 +9,80 @@
   <title>AI Tools Universe — Discover Your Next AI Tool (Designed and Created By SAYEEF ADNAN)</title>
 
   <style>
+    
+.feedback-section {
+  margin: 50px auto 30px;
+  padding: 20px;
+  max-width: 850px;
+  text-align: center;
+}
+
+.feedback-content {
+  padding: 40px 24px;
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    #171b35,
+    #251447,
+    #102b3c
+  );
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-icon {
+  font-size: 35px;
+}
+
+.feedback-content h2 {
+  color: #fff;
+  font-size: clamp(24px, 4vw, 34px);
+  margin: 14px 0;
+}
+
+.feedback-content p {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin: 0 auto 25px;
+  max-width: 500px;
+}
+
+.feedback-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feedback-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.5);
+}
+
+.feedback-button:focus-visible {
+  outline: 3px solid #c4b5fd;
+  outline-offset: 4px;
+}
+
+@media (max-width: 480px) {
+  .feedback-content {
+    padding: 30px 18px;
+  }
+
+  .feedback-button {
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+}
+
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
 
     :root {
@@ -484,6 +558,28 @@
 </head>
 
 <body>
+  
+<section class="feedback-section">
+  <div class="feedback-content">
+    <span class="feedback-icon">💜</span>
+    <h2>Love AI Tools Universe?</h2>
+    <p>
+      Help us improve! Share your thoughts,
+      suggestions, and ideas with us.
+    </p>
+
+    <a
+      href="https://sayeefadnan986-bit.github.io/sai-form/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="feedback-button"
+    >
+      <span>✉</span> Share Your Feedback
+      <span>↗</span>
+    </a>
+  </div>
+</section>
+
   <header class="topbar">
     <div class="container nav">
       <a class="brand" href="#" aria-label="AI Tools Universe home">
